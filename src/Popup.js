@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-// import closeIcon from './close.png'; 
-// assuming the close icon is saved as "close.png" in the same directory as this file
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const Button = styled.button`
   position: fixed;
@@ -11,8 +9,8 @@ const Button = styled.button`
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 20px;
-  background-color: #0077FF;
-  color: #FFFFFF;
+  background-color: #0077ff;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -27,11 +25,11 @@ const PopupContainer = styled.div`
   bottom: 80px;
   right: 20px;
   z-index: 999;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   overflow: hidden;
-  opacity: ${props => props.visible ? 1 : 0};
+  opacity: ${(props) => (props.visible ? 1 : 0)};
   transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
@@ -59,6 +57,22 @@ const PopupText = styled.div`
   margin: 0 20px;
 `;
 
+const PageContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Title = styled.h2`
+  margin-bottom: 20px;
+`;
+
+const Description = styled.p`
+  margin: 0;
+`;
+
 const Popup = () => {
   const [popupVisible, setPopupVisible] = useState(false);
 
@@ -73,12 +87,26 @@ const Popup = () => {
         <ProfileImage src={"./02.png"} alt="My Profile Image" />
         <PopupText>
           <h2>About Me</h2>
-          <p>Hello, my name is Shwetas Dhake and I am a Full-Stack Developer.</p>
+          <p>
+            Hello, my name is Shwetas Dhake and I am a Full-Stack Developer.
+          </p>
         </PopupText>
         <CloseButton onClick={togglePopup}>
-          <img src={"./close.png"} alt="Close" style={{ width: '30px', height: '30px'  }} />
+          <img
+            src={"./close.png"}
+            alt="Close"
+            style={{ width: "30px", height: "30px" }}
+          />
         </CloseButton>
       </PopupContainer>
+
+      <PageContainer>
+        <Title>The About Me Button</Title>
+        <Description>
+          Code creates a popup component using styled-components. useState hook
+          manages popup visibility and togglePopup function toggles it.
+        </Description>
+      </PageContainer>
     </>
   );
 };
